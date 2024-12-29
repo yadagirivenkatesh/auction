@@ -1,0 +1,97 @@
+* {
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	text-decoration: none;
+  }
+  
+  body {
+	background-image : url('D:/mani_intenship/media/logo_image.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+  }
+  
+  header {
+	padding: 2rem 9%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 99;
+	background-image: linear-gradient(to right, red, silver, blue);
+	color: rgb(224, 204, 195);
+	display: flex;
+	justify-content: space-between;
+  }
+  
+  nav a {
+	float: left;
+	display: block;
+	color: #f4f8f3;
+	text-align: left;
+	font-size: 1.5rem;
+	margin-left: 2rem;
+  }
+  
+  nav a:hover {
+	background-color: #5ec765;
+	padding-top: 5px;
+  }
+  
+  /* Style the main content section */
+  main {
+	padding: 20px;
+  }
+  
+  /* Style the footer */
+  footer {
+	background-color: #f6fafc;
+	color: #1dcd40;
+	padding: 10px;
+	text-align: center;
+  }
+  
+  .card {
+	display: none;
+  }
+  
+  footer {
+	font-size: 14px;
+  }
+  
+  .card {
+	display: none;
+	background-color: rgba(255, 255, 255, 0.8);
+	border: none;
+  }
+  
+  .card-body {
+	color: #333;
+  }
+  
+  footer {
+	font-size: 14px;
+  }
+  
+  div.transbox {
+	margin: 30px auto; /* Center the div horizontally */
+	background-color: #ffffff;
+	border: 1px solid black;
+	opacity: 0.6;
+	text-align: center; /* Center the content inside the div */
+	padding: 20px; /* Adjust the padding as needed */
+	max-width: 400px; /* Set a maximum width for the div */
+	margin-left: auto; /* Center the div horizontally */
+	margin-right: auto; /* Center the div horizontally */
+  }
+  
+  div.transbox p {
+	margin: 5%;
+	font-weight: bold;
+	color: #000000;
+	padding: -10px;
+  }
+  

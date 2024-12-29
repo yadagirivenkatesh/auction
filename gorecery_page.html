@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grocery Tracking</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		body {
+			background-image: url('D:/mani_intenship/media/store.jpg');
+			background-repeat: no-repeat;
+	        background-attachment: fixed;
+	        background-size:100% 100%;
+			color: black;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		div.transbox {
+			margin: 30px auto; /* Center the div horizontally */
+	background-color: #ffffff;
+	border: 1px solid black;
+	opacity: 0.6;
+	text-align: center; /* Center the content inside the div */
+	padding: 20px; /* Adjust the padding as needed */
+	max-width: 500px; /* Set a maximum width for the div */
+	margin-left: auto; /* Center the div horizontally */
+	margin-right: auto; /* Center the div horizontally */
+       }
+
+        div.transbox p {
+			margin: 5%;
+	font-weight: bold;
+	color: #000000;
+	padding: -10px;3
+       }
+
+		.item {
+			display: flex;
+			align-items: center;
+			margin-bottom: 10px;
+		}
+
+		.item-name {
+			flex-grow: 1;
+		}
+
+		.add-item-button {
+			margin-left: 10px;
+		}
+
+		.item-count-input {
+			margin-left: 10px;
+			width: 50px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.used-count-input {
+			margin-left: 10px;
+			width: 50px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.calculate-button {
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="transbox">
+		<h1>Grocery Tracking</h1>
+		<div class="item">
+			<div class="item-name">Rice Bags</div>
+			<input type="number" class="item-count-input" value="50" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Ghee Cans</div>
+			<input type="number" class="item-count-input" value="20" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Onion Bags</div>
+			<input type="number" class="item-count-input" value="20" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Egg Trays</div>
+			<input type="number" class="item-count-input" value="100" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Potato Bags</div>
+			<input type="number" class="item-count-input" value="20" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Idily Rava Bags</div>
+			<input type="number" class="item-count-input" value="10" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Chicken</div>
+			<input type="number" class="item-count-input" value="10" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Fish Boxes</div>
+			<input type="number" class="item-count-input" value="10" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Mutton</div>
+			<input type="number" class="item-count-input" value="10" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Prawns Box</div>
+			<input type="number" class="item-count-input" value="10" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Curd Buckets</div>
+			<input type="number" class="item-count-input" value="10" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Tomato Boxes</div>
+			<input type="number" class="item-count-input" value="10" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Paneer Packets</div>
+			<input type="number" class="item-count-input" value="10" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">cauliflower Bags</div>
+			<input type="number" class="item-count-input" value="10" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Dal Bags</div>
+			<input type="number" class="item-count-input" value="5" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Oil Cans</div>
+			<input type="number" class="item-count-input" value="20" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+		<div class="item">
+			<div class="item-name">Jeera Packets</div>
+			<input type="number" class="item-count-input" value="20" />
+			<input type="number" class="used-count-input" value="0" />
+			<button class="btn btn-primary add-item-button">Add Item</button>
+			<button class="btn btn-danger remove-item-button">Remove Item</button>
+			<button class="btn btn-info calculate-button">Calculate</button>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(".add-item-button").on("click", function() {
+				var itemName = $(this).siblings(".item-name").text();
+				var itemCount = parseInt($(this).siblings(".item-count-input").val());
+				var usedCount = parseInt($(this).siblings(".used-count-input").val());
+
+				if (usedCount >= itemCount) {
+					alert("All items used!");
+					return;
+				}
+
+				usedCount++;
+				$(this).siblings(".used-count-input").val(usedCount);
+				alert("Item added: " + itemName);
+			});
+
+			$(".remove-item-button").on("click", function() {
+				var itemName = $(this).siblings(".item-name").text();
+				var itemCount = parseInt($(this).siblings(".item-count-input").val());
+				var usedCount = parseInt($(this).siblings(".used-count-input").val());
+
+				if (usedCount > 0) {
+					usedCount--;
+					$(this).siblings(".used-count-input").val(usedCount);
+					alert("Item removed: " + itemName);
+				}
+			});
+
+			$(".calculate-button").on("click", function() {
+				var itemName = $(this).siblings(".item-name").text();
+				var itemCount = parseInt($(this).siblings(".item-count-input").val());
+				var usedCount = parseInt($(this).siblings(".used-count-input").val());
+				var availableCount = itemCount - usedCount;
+
+				alert("Item: " + itemName + "\nTotal Items: " + itemCount + "\nUsed Items: " + usedCount + "\nAvailable Items: " + availableCount);
+			});
+		});
+	</script>
+</body>
+</html>

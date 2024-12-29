@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Display</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        /* CSS styles for the order display */
+        body {
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+
+        .btn-group {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* CSS styles for printing */
+        @media print {
+            body {
+                background: linear-gradient(to right, red, silver, blue);
+                color: white;
+                padding: 0;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 1px solid #fff;
+                padding: 4px;
+            }
+
+            .btn-group {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Order Display</h1>
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Table Number</th>
+            </tr>
+        </thead>
+        <tbody id="orderData">
+            <!-- Order items will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <div class="btn-group">
+        <!--<button class="btn btn-primary" onclick="downloadOrder()">Download Order</button>-->
+        <button class="btn btn-primary" onclick="printOrder()">Print Order</button>
+    </div>
+
+    <script>
+        // Function to add order items dynamically
+        function addOrderItem(item, quantity, tableNo) {
+            var orderRow = document.createElement('tr');
+            var itemCell = document.createElement('td');
+            var quantityCell = document.createElement('td');
+            var tableNoCell = document.createElement('td');
+
+            itemCell.textContent = item;
+            quantityCell.textContent = quantity;
+            tableNoCell.textContent = tableNo;
+
+            orderRow.appendChild(itemCell);
+            orderRow.appendChild(quantityCell);
+            orderRow.appendChild(tableNoCell);
+
+            document.getElementById('orderData').appendChild(orderRow);
+        }
+
+        // Function to download the order
+        function downloadOrder() {
+            // Logic to download the order as a PDF or any other format
+            // Add your code here
+        }
+
+        // Function to print the order
+        function printOrder() {
+            window.print();
+        }
+
+        // Retrieve the order items from the URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var orderItems = urlParams.get('orderItems');
+        if (orderItems) {
+            var itemsArray = orderItems.split(',');
+
+            for (var i = 0; i < itemsArray.length; i++) {
+                var orderItem = itemsArray[i].split(':');
+                var item = orderItem[0];
+                var quantity = orderItem[1];
+                var tableNo = orderItem[2];
+
+                addOrderItem(item, quantity, tableNo);
+            }
+        }
+    </script>
+</body>
+</html>

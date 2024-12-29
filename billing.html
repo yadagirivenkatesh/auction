@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Billing</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url('D:/mani_intenship/media/billing.jpg');
+	    background-repeat: no-repeat;
+	    background-attachment: fixed;
+	    background-size:100% 100%;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      margin-top: 100px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Billing</h1>
+
+    <div id="orderItems">
+      <div class="form-group">
+        <label for="item">Item:</label>
+        <select class="form-control item-dropdown">
+          <option value="">Select an item</option>
+          <option value="DOSA">DOSA</option>
+          <option value="RAVA DOSA">RAVA DOSA</option>
+          <option value="MASALA DOSA">MASALA DOSA</option>
+          <option value="EGG DOSA">EGG DOSA</option>
+          <option value="ONION DOSA">ONION DOSA</option>                  
+          <option value="GHEE DOSA">GHEE DOSA</option>
+          <option value="MAHARAJA DOSA-90cm">MAHARAJA DOSA-90cm</option>
+          <option value="IDLY">IDLY</option>
+          <option value="SAMBAR IDLY">SAMBAR IDLY</option>
+          <option value="VADA">VADA</option>
+          <option value="PURI">PURI</option>
+          <option value="PONGAL">PONGAL</option>
+          <option value="UPMA">UPMA</option>
+          <option value="UTHAPPAM">UTHAPPAM</option>                      
+          <option value="HYDERABAD CHICKEN BIRIYANI">HYDERABAD CHICKEN BIRIYANI</option>          
+          <option value="ROTTI">ROTTI</option>          
+          <option value="KAJU CHICKEN">KAJU CHICKEN</option>         
+          <option value="CHICKEN LOLLY POPS"> CHICKEN LOLLY POPS</option>          
+          <option value="GOBBI RICE">GOBBI RICE</option>          
+          <option value="FRIED RICE">FRIED RICE</option>          
+          <option value="GOBBI MANCHURIYA">GOBBI MANCHURIYA</option>          
+          <option value="VEG NOODLES"> VEG NOODLES</option>          
+          <option value="CHICKEN NOODLES">CHICKEN NOODLES</option>          
+          <option value="DAL RICE">DAL RICE</option>          
+          <option value="PLAIN BIRIYANI">PLAIN BIRIYANI</option>
+          <option value="EGG BIRIYANI">EGG BIRIYANI</option>
+          <option value="CHICKEN FRIED RICE">CHICKEN FRIED RICE</option>
+          <option value="CHICKEN FRY BIRIYANI">CHICKEN FRY BIRIYANI</option>
+          <option value="SP CHICKEN BIRYANI">SP CHICKEN BIRIYANI</option>
+          <option value="FISH CURRY">FISH CURRY</option>
+          <option value="CHICKEN BIRIYANI">CHICKEN BIRIYANI</option>
+          <option value="CHICKEN DUM BIRYANI">CHICKEN DUM BIRYANI</option>
+          <option value="MUTTON BIRIYANI">MUTTON BIRIYANI</option>
+          <option value="BONE LESS MUTTON BIRYANI">BONE LESS MUTTON BIRYANI</option>
+          <option value="PRAWN BIRIYANI">PRAWN BIRIYANI</option>
+          <option value="CURD RICE">CURD RICE</option>
+          <option value="TAMOTO RICE">TAMOTO RICE</option>
+          <option value="PANEER RICE">PANEER RICE</option>
+          <option value="JEERA RICE">JEERA RICE</option>
+          <option value="VEG BIRIYANI">VEG BIRIYANI</option>        
+          <option value="VE PALAV">VEG PALAV</option>        
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" class="form-control quantity-input" value="1" min="1">
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" class="form-control price-input" step="0.01">
+      </div>
+
+      <button class="btn btn-primary add-item">Add Item</button>
+    </div>
+
+    <div id="orderList"></div>
+
+    <button class="btn btn-success place-order">Calculate Total</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Function to cancel an item
+      function cancelItem(event) {
+        $(event.target).closest('.order-item').remove();
+      }
+
+      $('.add-item').click(function() {
+        var item = $('.item-dropdown').val();
+        var quantity = $('.quantity-input').val();
+        var price = $('.price-input').val();
+
+        if (item !== "" && quantity !== "" && price !== "") {
+          var orderItem = `<div class="order-item">
+                             <p><strong>Item:</strong> ${item}</p>
+                             <p><strong>Quantity:</strong> ${quantity}</p>
+                             <p><strong>Price:</strong> ${price}</p>
+                             <button class="btn btn-danger cancel-item">Cancel Item</button>
+                             <hr>
+                           </div>`;
+          $('#orderList').append(orderItem);
+
+          // Clear input fields
+          $('.item-dropdown').val('');
+          $('.quantity-input').val('1');
+          $('.price-input').val('');
+        }
+      });
+
+      // Event delegation for dynamically created cancel item buttons
+      $('#orderList').on('click', '.cancel-item', cancelItem);
+
+      $('.place-order').click(function() {
+        var orderItems = [];
+        $('.order-item').each(function() {
+          var item = $(this).find('p:first-child').text().replace('Item:', '').trim();
+          var quantity = $(this).find('p:nth-child(2)').text().replace('Quantity:', '').trim();
+          var price = $(this).find('p:nth-child(3)').text().replace('Price:', '').trim();
+          orderItems.push({ item: item, quantity: quantity, price: price });
+        });
+
+        if (orderItems.length > 0) {
+          // Redirect to invoice page with order items as query parameter
+          var orderItemsParam = encodeURIComponent(JSON.stringify(orderItems));
+          window.location.href = "./invoice.html?orderItems=" + orderItemsParam;
+        } else {
+          alert("No items in the order list.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

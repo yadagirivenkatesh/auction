@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Page</title>
+    <style>
+        body {
+            background-image: url('D:/Mani_intenship/media/7b_logo.jpg');
+            background-repeat: no-repeat;    
+	        background-attachment: fixed;
+	        background-size: 100% 100%;
+            
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 100px;
+        }
+        
+        .button {
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        @keyframes happy-animation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .happy-animation {
+            animation-name: happy-animation;
+            animation-duration: 1s;
+        }
+    </style>
+    <script>
+        function addHappyAnimation() {
+            var button = document.getElementById('enter-button');
+            button.classList.add('happy-animation');
+            setTimeout(function() {
+                window.location.href = "homelogo.html";
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <button id="enter-button" class="button" onclick="addHappyAnimation()">Click to Enter</button>
+</body>
+</html>
